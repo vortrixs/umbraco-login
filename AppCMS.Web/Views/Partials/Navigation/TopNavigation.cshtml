@@ -1,6 +1,6 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
 @using Umbraco.Web;
-@{ 
+@{
     var site = Model.Root();
     var selection = site.Children.Where(x => x.IsVisible());
 }
@@ -8,5 +8,20 @@
 <!-- <a class="nav-link @Html.Raw(Model.Id == site.Id ? "navi-link--active" : "")" href="@site.Url">@site.Name</a> -->
 @foreach (var item in selection)
 {
-    <a class="nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url">@item.Name</a>
+    if (@item.Name == "Sign in" && @Umbraco.MemberIsLoggedOn())
+    {
+        using (Html.BeginUmbracoForm("SubmitLogout", "Member", System.Web.Mvc.FormMethod.Post, new { id = "logout" }))
+        {
+            @Html.AntiForgeryToken()
+            var myUser = System.Web.Security.Membership.GetUser();
+            if (myUser != null)
+            {
+                <button class="nav-link" name="login" type="submit"><span>Sign out</span> <i class="fa fa-arrow-right"></i></button>
+            }
+        }
+
+        continue;
+    }
+
+<a class="nav-link @(item.IsAncestorOrSelf(Model) ? " nav-link--active" : null)" href="@item.Url">@item.Name</a>
 }

@@ -1,4 +1,4 @@
-@inherits Umbraco.Web.Mvc.UmbracoViewPage<AppCMS.Models.LoginModel>
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<AppCMS.Web.Models.LoginModel>
 @using Umbraco.Web
 
 @if(!Umbraco.MemberIsLoggedOn())
@@ -18,5 +18,5 @@
 }
 else
 {
-    Html.RenderAction("RenderLogout", "Member");
+    Response.Redirect("/");
 }

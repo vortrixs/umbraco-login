@@ -1,0 +1,62 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Home>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    Layout = "master.cshtml";
+    var backgroundImage = Model.HeroBackgroundImage != null ? Model.HeroBackgroundImage.Url : String.Empty;
+}
+<section class="section section--full-height background-image-full overlay overlay--dark section--content-center section--thick-border"
+         style="background-image: url('@backgroundImage')">
+    <div class="section__hero-content">
+        <h1>@Model.HeroHeader</h1>
+        <p class="section__description">@Model.HeroDescription</p>
+    </div>
+</section>
+
+<section class="section">
+    <h2>We offer</h2>
+    <h3>The following packages</h3>
+    <div class="container">
+        <div class="">
+            @if (Model.FeaturedProducts != null)
+            {
+                foreach (Product product in Model.FeaturedProducts)
+                {
+                    <div class="">
+                        <h3 class="">@product.ProductName</h3>
+                        <ul class="product-advantages">
+                            @if (@product.Features != null)
+                            {
+                                foreach (Feature feature in @product.Features)
+                                {
+                                    <li>@feature.GetProperty("featureName").Value()</li>
+                                }
+                            }
+                        </ul>
+                        <div class="">@product.Price.ToString("F")</div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="container">
+        <div class="row">
+
+            <div class="ta-center">
+                <p class="section__description mw-640 ma-h-auto">@Model.FooterDescription</p>
+
+                <a class="button button--border--light_solid" href="@Model.FooterCtalink.Url">
+                    @Model.FooterCtacaption
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+
+</section>

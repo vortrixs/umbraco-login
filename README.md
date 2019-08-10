@@ -14,10 +14,12 @@
 ## Files added
 * `AppCMS.Web\Views\login.cshtml`
 * `AppCMS.Web\Views\Partials\Login.cshtml`
+* `AppCMS.Web\Views\Partials\SignUp.cshtml`
 
 # Functionality
 * `AppCMS.Web\Controllers\MemberController.cs`
 * `AppCMS.Web\Models\LoginModel.cs`
+* `AppCMS.Web\Models\SignupModel.cs`
 
 # Users
 ## Backend (Users)

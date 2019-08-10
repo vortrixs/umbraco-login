@@ -15,6 +15,10 @@
 * `AppCMS.Web\Views\login.cshtml`
 * `AppCMS.Web\Views\Partials\Login.cshtml`
 
+# Functionality
+* `AppCMS.Web\Controllers\MemberController.cs`
+* `AppCMS.Web\Models\LoginModel.cs`
+
 # Users
 ## Backend (Users)
 * Email: admin@local.dev

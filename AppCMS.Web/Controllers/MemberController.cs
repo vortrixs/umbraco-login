@@ -3,6 +3,7 @@ using System.Web.Security;
 using Umbraco.Web.Mvc;
 using AppCMS.Web.Models;
 
+
 namespace AppCMS.Web.Controllers
 {
     public class MemberController : SurfaceController
@@ -21,7 +22,7 @@ namespace AppCMS.Web.Controllers
                 return CurrentUmbracoPage();
             }
 
-            if (!Membership.ValidateUser(model.Email, model.Password))
+            if (!Members.Login(model.Email, model.Password))
             {
                 ModelState.AddModelError("", "The email or password provided is incorrect.");
                 return CurrentUmbracoPage();
@@ -34,10 +35,37 @@ namespace AppCMS.Web.Controllers
 
         public ActionResult SubmitLogout()
         {
-            TempData.Clear();
-            Session.Clear();
+            Members.Logout();
             FormsAuthentication.SignOut();
             return RedirectToCurrentUmbracoPage();
+        }
+
+        public ActionResult RenderSignup()
+        {
+            return PartialView("SignUp", new SignupModel());
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SubmitSignup(SignupModel model, string returnUrl)
+        {
+            if (!ModelState.IsValid)
+            {
+                return CurrentUmbracoPage();
+            }
+
+            if (null != Membership.GetUserNameByEmail(model.Email))
+            {
+                ModelState.AddModelError("", "A user with this email already exists.");
+                return CurrentUmbracoPage();
+            }
+
+            FormsAuthentication.SetAuthCookie(model.Email, false);
+            Membership.CreateUser(model.Email, model.Password, model.Email, "", "", true, out _);
+
+            Members.RegisterMember(model.Register(Members), out _, true);
+                       
+            return Redirect("/");
         }
     }
 }

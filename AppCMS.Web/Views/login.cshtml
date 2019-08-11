@@ -1,8 +1,21 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Login>
+@using ContentModels = Umbraco.Web.PublishedModels;
+
 @{
-	Layout = "master.cshtml";
+    Layout = "master.cshtml";
+    
+    var backgroundImage = Model.PageBackground != null ? Model.PageBackground.Url : String.Empty;
 }
 
-@{ 
-	Html.RenderAction("RenderLogin", "Member"); 
-}
+<section class="section section--full-height background-image-full" style="background-image: url(@backgroundImage);">
+    <h1 class="appcms-field-box-header">@Model.Name</h1>
+    <div class="container appcms-field-box">
+        <div class="col-md-9">
+            @{ Html.RenderAction("RenderLogin", "Member"); }
+        </div>
+    </div>
+    <div class="appcms-signin-links">
+        <a href="/sign-up">Sign up</a>
+        <a href="#">Forgot Password</a>
+    </div>
+</section>

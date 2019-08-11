@@ -1,0 +1,15 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.SignUp>
+@using ContentModels = Umbraco.Web.PublishedModels;
+
+@{
+    Layout = "master.cshtml";
+    var backgroundImage = Model.PageBackground != null ? Model.PageBackground.Url : String.Empty;
+}
+
+<section class="section section--full-height background-image-full" style="background-image: url(@backgroundImage);">
+    <div class="container appcms-field-box">
+        <div class="col-md-9">
+            @{ Html.RenderAction("RenderSignup", "Member"); }
+        </div>
+    </div>
+</section>

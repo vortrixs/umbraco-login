@@ -1,0 +1,29 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<AppCMS.Web.Models.SignupModel>
+@using Umbraco.Web
+
+@if(!Umbraco.MemberIsLoggedOn())
+{
+    using (Html.BeginUmbracoForm("SubmitSignup", "Member", System.Web.Mvc.FormMethod.Post, new { id="signup" }))
+    {           
+        @Html.AntiForgeryToken()
+
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { autofocus = true })
+        
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email)
+
+        @Html.LabelFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password, new { placeholder = "6 characters minimum" })
+        
+        @Html.LabelFor(m => m.PasswordRepeat)
+        @Html.PasswordFor(m => m.PasswordRepeat)
+
+        @Html.ValidationSummary()
+        <button name="signup" type="submit">Sign up</button>
+    }
+}
+else
+{
+    Response.Redirect("/sign-in");
+}

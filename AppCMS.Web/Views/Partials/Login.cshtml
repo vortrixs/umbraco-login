@@ -1,4 +1,4 @@
-@inherits Umbraco.Web.Mvc.UmbracoViewPage<AppCMS.Models.LoginModel>
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<AppCMS.Web.Models.LoginModel>
 @using Umbraco.Web
 
 @if(!Umbraco.MemberIsLoggedOn())
@@ -7,16 +7,21 @@
     {           
         @Html.AntiForgeryToken()
         @Html.LabelFor(m => m.Email)
-        @Html.TextBoxFor(m => m.Email, new { placeholder = "Email" })
+        @Html.TextBoxFor(m => m.Email, new { autofocus = true, type = "email" })
 
         @Html.LabelFor(m => m.Password)
-        @Html.PasswordFor(m => m.Password, new { placeholder = "Password" })
+        @Html.PasswordFor(m => m.Password)
+        
+        <div class="appcms-signin-remember">
+            @Html.CheckBoxFor(m => m.Remember)
+            @Html.LabelFor(m => m.Remember)
+        </div>
 
         @Html.ValidationSummary()
-        <button name="login" type="submit">Login</button>
+        <button name="login" type="submit">Sign In</button>
     }
 }
 else
 {
-    Html.RenderAction("RenderLogout", "Member");
+    Response.Redirect("/");
 }

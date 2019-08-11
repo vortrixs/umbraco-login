@@ -4,7 +4,7 @@ namespace AppCMS.Web.Models
 {
     public class LoginModel
     {
-        [Display(Name = "Email")]
+        [Display(Name = "E-mail")]
         [Required]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
@@ -13,5 +13,8 @@ namespace AppCMS.Web.Models
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+
+        [Display(Name = "Remember me")]
+        public bool Remember { get; set; }
     }
 }

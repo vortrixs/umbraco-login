@@ -1488,7 +1488,7 @@ a.nav-link.nav-link--black {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-pack: center;
-    justify-content: center
+    justify-content: center;
 }
 
 .section--content-center-bottom {

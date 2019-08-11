@@ -63,7 +63,13 @@ namespace AppCMS.Web.Controllers
             FormsAuthentication.SetAuthCookie(model.Email, false);
             Membership.CreateUser(model.Email, model.Password, model.Email, "", "", true, out _);
 
-            Members.RegisterMember(model.Register(Members), out _, true);
+            MembershipUser member = Members.RegisterMember(model.Register(Members), out _, true);
+
+            if (!member.IsApproved)
+            {
+                ModelState.AddModelError("", "Could not create user. Please try again.");
+                return CurrentUmbracoPage();
+            }
                        
             return Redirect("/");
         }

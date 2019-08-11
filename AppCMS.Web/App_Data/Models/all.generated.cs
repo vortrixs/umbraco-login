@@ -8,7 +8,7 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "4d3fe281e48f9670")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "350e6ce9b11e52c7")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 
@@ -587,6 +587,27 @@ namespace Umbraco.Web.PublishedModels
 		public string HeroHeader => this.Value<string>("heroHeader");
 
 		///<summary>
+		/// Image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("image")]
+		public IPublishedContent Image => this.Value<IPublishedContent>("image");
+
+		///<summary>
+		/// Product Box Background
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("productBoxBackground")]
+		public IPublishedContent ProductBoxBackground => this.Value<IPublishedContent>("productBoxBackground");
+
+		///<summary>
+		/// Product Box Price
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("productBoxPrice")]
+		public IPublishedContent ProductBoxPrice => this.Value<IPublishedContent>("productBoxPrice");
+
+		///<summary>
 		/// Logo: Optional. If you add a logo it'll be used in the upper left corner instead of the site name. Make sure to use a transparent logo for best results
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
@@ -965,6 +986,13 @@ namespace Umbraco.Web.PublishedModels
 		{ }
 
 		// properties
+
+		///<summary>
+		/// Page Background
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("pageBackground")]
+		public IPublishedContent PageBackground => this.Value<IPublishedContent>("pageBackground");
 	}
 
 	/// <summary>Sign up</summary>
@@ -991,6 +1019,13 @@ namespace Umbraco.Web.PublishedModels
 		{ }
 
 		// properties
+
+		///<summary>
+		/// Page Background
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("pageBackground")]
+		public IPublishedContent PageBackground => this.Value<IPublishedContent>("pageBackground");
 
 		///<summary>
 		/// Keywords: Keywords that describe the content of the page. This is considered optional since most modern search engines don't use this anymore

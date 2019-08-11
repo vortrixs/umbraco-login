@@ -19,6 +19,7 @@ namespace AppCMS.Web.Models
         [Display(Name = "Password")]
         [Required]
         [DataType(DataType.Password)]
+        [MinLength(6)]
         public string Password { get; set; }
 
         [Display(Name = "PasswordRepeat")]

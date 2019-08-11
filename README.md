@@ -17,6 +17,7 @@ Umbraco 8.1.1 w/ [The Starter Kit](https://our.umbraco.com/packages/starter-kits
 
 ## Files added
 * `AppCMS.Web\Views\login.cshtml`
+* `AppCMS.Web\Views\SignUp.cshtml`
 * `AppCMS.Web\Views\Partials\Login.cshtml`
 * `AppCMS.Web\Views\Partials\SignUp.cshtml`
 * `AppCMS.Web\css\appcms.css`

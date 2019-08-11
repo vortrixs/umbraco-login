@@ -4,7 +4,11 @@
 * IIS Express 10.0
 * Visual Studio 2019 Community Version 16.2.1
 
-# Design
+I've been running the localhost instance through Visual Studio (Build/Ctrl+F5) so no seperate SQL server has been used
+
+# Modifications
+
+Umbraco 8.1.1 w/ [The Starter Kit](https://our.umbraco.com/packages/starter-kits/the-starter-kit/) used as the foundation
 
 ## Files modified
 * `AppCMS.Web\Views\master.cshtml`
@@ -15,8 +19,9 @@
 * `AppCMS.Web\Views\login.cshtml`
 * `AppCMS.Web\Views\Partials\Login.cshtml`
 * `AppCMS.Web\Views\Partials\SignUp.cshtml`
+* `AppCMS.Web\css\appcms.css`
 
-# Functionality
+# Models and Controllers
 * `AppCMS.Web\Controllers\MemberController.cs`
 * `AppCMS.Web\Models\LoginModel.cs`
 * `AppCMS.Web\Models\SignupModel.cs`
